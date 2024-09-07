@@ -1,11 +1,10 @@
 #include <stdio.h>
 
-int numInputted, ir, fibN, num;
-char* fileInputted;
+int numInputted, fibN, num;
 int printRecursion(int n){
    if (n == 0){
       fibN= 0;
-   }
+   } else
    if (n == 1){
       fibN = 1;
    }
@@ -43,27 +42,31 @@ void recursionOrIteration(char t){
    }
 }
 
-void gatheringNumber(int inputted, const char * c){
+void gatheringNumber(int inputted){
+   char* fileInputted;
+   printf("Please input the file name: ");
+   scanf("%s", fileInputted);
    int numFromFile;
-   FILE *gatheringFiles = fopen(c, "r");
-   if(gatheringFiles == NULL){
-      printf("Error: Unable to open file. \n")
-   }else{
+   FILE *gatheringFiles = fopen(fileInputted, "r");
    fscanf(gatheringFiles, "%d", &numFromFile);
    num = numFromFile + inputted;
    fclose(gatheringFiles);
-   }
+}
+
+void gettingChar(){
+   char ir[30];
+   printf("Please input 'r' for recursion or 'i' for iteration: ");
+   fgets(ir, sizeof(ir), stdin);
+   //printf("I am here 2\n");
 }
 
 int main() {
    printf("Hello!\n");
    printf("Please input an integer: ");
    scanf("%d", &numInputted);
-   printf("Please input 'r' for recursion) or 'i' for iteration: ");
-   ir = getchar();
-   printf("Please input the file name: ");
-   scanf("%s", fileInputted);
-   gatheringNumber(numInputted, fileInputted);
-   recursionOrIteration(ir); 
+   printf("I am here 1\n");
+   gettingChar();
+   gatheringNumber(numInputted);
+   //recursionOrIteration(ir); 
    return 0;
 }
