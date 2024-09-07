@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int numInputted, ir, fibN, num;
+char* fileInputted;
 int printRecursion(int n){
    if (n == 0){
       fibN= 0;
@@ -42,21 +43,27 @@ void recursionOrIteration(char t){
    }
 }
 
-void gatheringNumber(int inputted){
+void gatheringNumber(int inputted, const char * c){
    int numFromFile;
-   FILE *gatheringFiles = fopen("fileNumber.txt", "r");
+   FILE *gatheringFiles = fopen(c, "r");
+   if(gatheringFiles == NULL){
+      printf("Error: Unable to open file. \n")
+   }else{
    fscanf(gatheringFiles, "%d", &numFromFile);
    num = numFromFile + inputted;
    fclose(gatheringFiles);
+   }
 }
 
 int main() {
    printf("Hello!\n");
-   printf("Please input 'r' for recursion) or 'i' for iteration: ");
-   ir = getchar();
    printf("Please input an integer: ");
    scanf("%d", &numInputted);
-   gatheringNumber(numInputted);
+   printf("Please input 'r' for recursion) or 'i' for iteration: ");
+   ir = getchar();
+   printf("Please input the file name: ");
+   scanf("%s", fileInputted);
+   gatheringNumber(numInputted, fileInputted);
    recursionOrIteration(ir); 
    return 0;
 }
