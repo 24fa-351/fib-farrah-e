@@ -46,7 +46,7 @@ int gatheringNumber(int inputted){
 
 
 int main() {
-   char* ir;
+   char ir;
 
    printf("Hello!\n");
    printf("Please input an integer: ");
@@ -55,7 +55,7 @@ int main() {
    scanf(" %c", &ir);
    num = gatheringNumber(numInputted);
 
-   if(*ir =='i'){
+   if(ir =='i'){
       fibN = printIteration(num);
    } 
    else{
