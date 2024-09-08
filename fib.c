@@ -32,7 +32,7 @@ int printIteration(int n){
 }
 
 int gatheringNumber(int inputted){
-   const char fileInputted;
+   char fileInputted;
    printf("Please input the file name: ");
    scanf("%s", &fileInputted);
    int numFromFile;
