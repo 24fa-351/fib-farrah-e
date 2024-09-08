@@ -38,14 +38,14 @@ void recursionOrIteration(char* t){
    else{
       fibN = printRecursion(num);
    }
-   printf("The Fibonnacci number is: %d", fibN, "\n");
+   printf("%d",fibN);
 
 }
 
 int gatheringNumber(int inputted){
    const char fileInputted;
    printf("Please input the file name: ");
-   scanf("%s", fileInputted);
+   scanf("%s", &fileInputted);
    int numFromFile;
    FILE *gatheringFiles = fopen(&fileInputted, "r");
    fscanf(gatheringFiles, "%d", &numFromFile);
