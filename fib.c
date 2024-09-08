@@ -31,17 +31,6 @@ int printIteration(int n){
    return curfib;
 }
 
-int recursionOrIteration(char* t){
-   if(*t =='i'){
-      fibN = printIteration(num);
-   } 
-   else{
-      fibN = printRecursion(num);
-   }
-   return fibN;
-
-}
-
 int gatheringNumber(int inputted){
    const char fileInputted;
    printf("Please input the file name: ");
@@ -65,6 +54,13 @@ int main() {
    printf("Please input 'r' for recursion or 'i' for iteration: ");
    scanf(" %c", &ir);
    num = gatheringNumber(numInputted);
-   recursionOrIteration(ir); 
+
+   if(*ir =='i'){
+      fibN = printIteration(num);
+   } 
+   else{
+      fibN = printRecursion(num);
+   }
+   printf("%d", fibN);
    return 0;
 }
