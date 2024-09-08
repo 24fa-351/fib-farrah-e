@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 int numInputted, fibN, num;
 
 int printRecursion(int n){
    int fibcur;
-   if (n == 0){
+   if (n == 1){
       fibcur= 0;
    } else
-   if (n == 1){
+   if (n == 2){
       fibcur = 1;
    }
    else{
@@ -19,13 +19,13 @@ int printRecursion(int n){
 }
 
 int printIteration(int n){
-   if (n<=0){
+   if (n<=1){
       return 0;
-   } else if(n==1){
+   } else if(n==2){
       return 1;
    }
    int term1=0, term2=1, curfib;
-   for (int i = 2; i <= n; i++){
+   for (int i = 3; i <= n; i++){
       curfib = term1 + term2;
       term1 = term2;
       term2 = curfib;
@@ -33,30 +33,23 @@ int printIteration(int n){
    return curfib;
 }
 
-int gatheringNumber(int inputted){
-   char fileInputted;
-   printf("Please input the file name: ");
-   scanf("%s", &fileInputted);
+int gatheringNumber(char *fileIn, int inputted){
    int numFromFile;
-   FILE *gatheringFiles = fopen(&fileInputted, "r");
+   FILE *gatheringFiles = fopen(fileIn, "r");
    fscanf(gatheringFiles, "%d", &numFromFile);
    int number = numFromFile + inputted;
    fclose(gatheringFiles);
-   return number-1;
+   return number;
 
 }
 
 
-int main() {
-   char ir;
+int main(int argc, char *argv[]) {
+   int numInputted = atoi(argv[1]);
+   char ir = argv[2][0];
+   char *fileInputted = argv[3];
 
-   printf("Hello!\n");
-   printf("Please input an integer: ");
-   scanf("%d", &numInputted);
-   printf("Please input 'r' for recursion or 'i' for iteration: ");
-   scanf(" %c", &ir);
-   num = gatheringNumber(numInputted);
-
+   num = gatheringNumber(fileInputted, numInputted);
    if(ir =='i'){
       fibN = printIteration(num);
    } 
