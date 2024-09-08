@@ -31,14 +31,14 @@ int printIteration(int n){
    return curfib;
 }
 
-void recursionOrIteration(char* t){
+int recursionOrIteration(char* t){
    if(*t =='i'){
       fibN = printIteration(num);
    } 
    else{
       fibN = printRecursion(num);
    }
-   printf("%d",fibN);
+   return fibN;
 
 }
 
@@ -66,6 +66,5 @@ int main() {
    scanf(" %c", &ir);
    num = gatheringNumber(numInputted);
    recursionOrIteration(ir); 
-
    return 0;
 }
