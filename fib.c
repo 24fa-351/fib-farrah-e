@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 
 int numInputted, fibN, num;
 
@@ -40,7 +42,7 @@ int gatheringNumber(int inputted){
    fscanf(gatheringFiles, "%d", &numFromFile);
    int number = numFromFile + inputted;
    fclose(gatheringFiles);
-   return number;
+   return number-1;
 
 }
 
