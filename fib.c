@@ -61,6 +61,6 @@ int main() {
    else{
       fibN = printRecursion(num);
    }
-   printf("%d", fibN);
+   printf("%d\n", fibN);
    return 0;
 }
