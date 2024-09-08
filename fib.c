@@ -43,17 +43,18 @@ void recursionOrIteration(char* t){
    }
 }
 
-void gatheringNumber(int inputted){
+int gatheringNumber(int inputted){
    char* fileInputted;
    printf("Please input the file name: ");
    scanf("%s", &fileInputted);
    int numFromFile;
    FILE *gatheringFiles = fopen(fileInputted, "r");
    fscanf(gatheringFiles, "%d", &numFromFile);
+   num = numFromFile + inputted;
    printf("I am here 3\n");
 
-   num = numFromFile + inputted;
    fclose(gatheringFiles);
+   return num;
 
 }
 
